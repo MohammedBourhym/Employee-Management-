@@ -1,0 +1,67 @@
+.container {
+  display: flex;
+  justify-content: space-around;
+  background-color: white;
+  height: 280px;
+  width: 20%;
+  border-radius: 10px;
+  font-size: 0.9rem;
+}
+
+.header{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    margin:10px 0px;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+table{
+ text-align: center;
+ width: 100%;
+ height: 100%;
+ text-align: center;
+}
+td{
+   
+    width: 30px;
+}
+.today {
+   
+  
+    color: #064af6 ;
+  }
+  
+  .has-event {
+    background-color: #714aff23; /* Highlight today's date */
+    color:#724aff;
+    border-radius: 50%;/* Highlight event dates */
+  }
+
+  .has-event:hover {
+    background-color: #714aff; 
+   
+  }
+
+button{
+    width:100%;
+    text-align: center;
+    font-size: 0.8rem;
+    cursor: pointer;
+    background: none;
+    border:none ;
+    padding: 5px;
+}
+
+.active:hover{
+    background-color: rgba(17, 65, 255, 0.129);
+    border-radius: 100px;
+}
+
+.inactive {
+    color: rgb(187, 187, 187);
+    cursor: auto;
+}
+

@@ -1,0 +1,230 @@
+/* Make the container use a CSS grid layout */
+.container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 columns in each row */
+ align-items: center;
+ width: 100%;
+ gap: 20px;
+
+  }
+
+.calendar {
+  width: 95%;
+  background-color: rgb(255, 255, 255);
+  margin: auto;
+  border-radius: 10px; /* Reduced radius for a cleaner look */
+  padding:5px 20px; /* Increased padding for more spacing */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Softer shadow */
+  margin-top: 10px;
+}
+
+
+  
+  .month {
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+    background-color: white;
+    border-radius: 10px;
+    width: 100%;
+    padding: 10px 20px;
+  }
+  .wrapper {
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center;     /* Center vertically (if needed) */
+    width: 95%;
+    padding: 20px 0; 
+    margin: auto;
+  }
+
+
+.Event-list{
+    width: 95%;
+  background-color: rgb(255, 255, 255);
+  margin: auto;
+  border-radius: 20px; /* Reduced radius for a cleaner look */
+  padding: 20px; /* Increased padding for more spacing */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Softer shadow */
+  margin-top: 30px;
+  }
+
+  .header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+   
+  }
+
+  button {
+    padding: 10px 15px;
+    margin: 0px 4px;
+    border-radius: 7px;
+    color: #4a7dff   ;
+    background-color: white;
+    border: none;
+    font-size: large;
+  }
+
+
+
+ .createEvent{
+    padding: 10px 15px;
+    margin: 0px 4px;
+    border-radius: 7px;
+    background-color: #4a7dff   ;
+    color:#ffffff;
+    border: none;
+    justify-content: space-between;
+    font-weight: 400;
+}
+
+h2{
+  font-size:x-large;
+ font-weight: 500;
+ font-family: 'poppins',sans-serif;
+}
+select {
+  padding: 5px 30px; /* Increased right padding for more space between text and arrow */
+  margin: 0px 4px;
+  border-radius: 6px;
+  border: 1px solid #bababa; /* Changed to solid border for consistency */
+  color: #000000;  /* Updated text color for better readability */
+  font-weight: 400;
+  
+  appearance: none; /* Remove default dropdown arrow */
+  background-color: #ffffff; /* Background color */
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 5"><polygon points="0,0 5,5 10,0" fill="%23444444"/></svg>'); /* Custom arrow */
+  background-repeat: no-repeat;
+  background-position: right 10px center; /* Adjusted position of the custom arrow */
+  background-size: 10px; /* Size of the custom arrow */
+  text-align: left;
+}
+
+select:hover {
+  border-color: #4a7dff; /* Change border color on hover */
+  outline: none; /* Remove outline */
+}
+
+
+
+.createEvent:hover{
+    background-color: #0048ff   ;
+}
+
+.actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+    font-weight: 600 ;
+    margin-top: 20px;
+    margin-bottom:20px ;
+}
+
+.searchbar{
+   border-radius:8px ;
+   border-color: #bababa;
+   width: 30%;
+   padding: 7px;
+  
+}
+
+
+
+
+.separator{
+  height: 1px;
+  background-color: #4a7dff;
+  margin-bottom: 20px ;
+  }
+  
+  /* Table styling */
+  table {
+    width: 100%;
+    border-collapse: collapse; 
+    background-color: #fff;
+    color: #606060;
+  }
+  
+  thead{
+      background-color: #f4f4f4;
+      color: black;
+  }
+  th {
+   
+    text-align: left;
+    padding: 15px;
+  
+  
+    font-weight: 600;
+    font-size: 1rem;
+  }
+  
+  td {
+    padding: 10px 15px;
+    font-size: 0.95rem;
+    font-weight: 400;
+    border-bottom: 1px solid #4a7dff; /* Light grey bottom border */
+  }
+
+
+  .Upcoming {
+    display: inline-block;
+    background-color: #4aff5c30;
+    color: #2aff04;
+    font-weight: 800;
+    padding: 5px 10px;
+    border-radius: 50px;
+  }
+  
+  .Past{
+    display: inline-block;
+    background-color: #fd00482d;
+    color: #fd0047;
+    font-weight: 800;
+    padding: 5px 10px;
+    border-radius: 50px;
+  }
+  
+  .action i {
+ 
+   
+    
+    padding: 10px;
+  }
+  .action i:hover {
+    background-color: #2b00ff17;
+    border-radius: 7px;
+    color:#4a7dff;
+    
+  }
+  .profil {
+    align-items: center;
+    display: flex;
+    gap: 8px;
+  }
+  
+  img {
+    width: 2rem; /* Larger image for better visibility */
+    height: 2rem;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 2px solid black;
+  }
+  
+  .name {
+    font-weight: 500; /* Slightly bolder name */
+  }
+  
+
+  tbody tr:hover {
+    background-color: #f9f9f9; /* Light hover effect */
+  }
+
+  .fa-angle-right{
+   font-size: medium;
+  }
+
+  app-pagination{
+    z-index: -1;
+  }
+
+  

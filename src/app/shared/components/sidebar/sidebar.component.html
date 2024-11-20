@@ -1,0 +1,67 @@
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+/>
+
+<div class="app-container">
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <img src="assets/foliatech.png" alt="logo" />
+      <h2>Foliatech</h2>
+    </div>
+
+    <ul class="sidebar-links">
+      <h4>
+        <span>Main Menu</span>
+        <div class="separator"></div>
+      </h4>
+      <li>
+        <a routerLink="/dashboard" routerLinkActive="active">
+          <i class="fa fa-tachometer-alt"></i> Dashboard
+        </a>
+      </li>
+      <li >
+        <a routerLink="/employees" routerLinkActive="active" >
+          <i class="fa fa-users"></i> Team
+        </a>
+      </li>
+      <li >
+        <a routerLink="/events" routerLinkActive="active">
+          <i class="fas fa-calendar-alt"></i> Events
+        </a>
+      </li>
+      <li routerLink="/tasks" routerLinkActive="active">
+        <a >
+          <i class="fas fa-tasks"></i> Tasks
+        </a>
+      </li>
+     
+
+      <h4>
+        <span>Department</span>
+        <div class="separator"></div>
+      </h4>
+     
+      <li routerLinkActive="active" *ngFor="let department of departments" (click)="navigateToDepartment(department)">
+        <a [routerLink]="['/department', department.id]">
+          <span 
+            class="dep-square" 
+            [style.background-color]="getDepartmentColor(department.name)">
+          </span> 
+       {{department.name}}
+        </a>
+      </li>
+
+      <li class="logout">
+        <a href="#">
+          <i class="fas fa-sign-out-alt"></i> Logout
+        </a>
+      </li>
+    </ul>
+  </aside>
+
+  <section class="content">
+    <router-outlet></router-outlet>
+    <app-toast></app-toast>
+  </section>
+</div>

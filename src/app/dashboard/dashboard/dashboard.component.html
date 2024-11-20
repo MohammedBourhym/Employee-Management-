@@ -1,0 +1,96 @@
+<div class="dashboard">
+  <div class="header">
+    <div>
+      <h2>Dashboard</h2>
+    </div>
+    <div class="dashboard-pagination">
+      ( {{ formattedToday }} )
+      <button (click)="updateDay(-1)">
+        <i class="fa fa-chevron-left"></i>
+      </button>
+      <button (click)="updateDay(1)">
+        <i class="fa fa-chevron-right"></i>
+      </button>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="summary-card">
+    <div class="card-content">
+      <p>9:16 AM</p>
+      <span>Team's Average In Time</span>
+    </div>
+    <div class="icon">
+      <i class="fa fa-clock"></i>
+    </div>
+  </div>
+  <div class="summary-card">
+    <div class="card-content">
+      <p>45 m</p>
+      <span>Team's Average Break Time</span>
+    </div>
+    <div class="icon">
+      <i class="fa fa-coffee"></i>
+    </div>
+  </div>
+  <div class="summary-card">
+    <div class="card-content">
+      <p>4 h 23 m</p>
+      <span>Team's Average Work Time</span>
+    </div>
+    <div class="icon">
+      <i class="fa fa-briefcase"></i>
+    </div>
+  </div>
+  <div class="summary-card">
+    <div class="card-content">
+      <p>-</p>
+      <span>Team's Average Out Time</span>
+    </div>
+    <div class="icon">
+      <i class="fa fa-sign-out-alt"></i>
+    </div>
+  </div>
+</div>
+
+<div class="chart">
+  <p-chart type="line" [data]="data" [options]="options"></p-chart>
+</div>
+
+<div class="activityTable">
+  <div class="tableheader">
+    <h1>Activity Table</h1>
+    <div class="tableactions">
+      <input type="text" class="searchbar" placeholder="Search" />
+    </div>
+  </div>
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>In Time</th>
+        <th>Out Time</th>
+        <th>Work Time</th>
+        <th>Break Time</th>
+        <th>Over Time</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let activity of activites">
+        <td>{{ activity.id }}</td>
+        <td>{{ activity.name }}</td>
+        @if(activity.status=='present'){
+            <td>{{ activity.in_time }}</td>
+        <td>{{ activity.out_time }}</td>
+        <td>{{ activity.work_time }}</td>
+        <td>{{ activity.break_time }}</td>
+        <td>{{ activity.overtime || "null" }}</td>
+        } @else {
+        <td colspan="5" ><p class="absent">{{ activity.status }}</p></td>
+        }
+      </tr>
+    </tbody>
+  </table>
+</div>

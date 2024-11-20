@@ -1,0 +1,90 @@
+<div class="calendar">
+  <div class="header">
+    <div>
+      <h2>Calendar</h2>
+     
+    </div>
+    <div class="month-pagination">
+      <button (click)="monthPagination(-1)"><i class="fa fa-chevron-left"></i></button>
+      <button (click)="monthPagination(1)"><i class="fa fa-chevron-right"></i></button>
+      
+      
+    </div>
+  </div>
+</div>
+
+<div class="wrapper">
+  <div class="container">
+    <div class="month" *ngFor="let m of selectedMonths">
+      <app-month
+        (addEvents)="onAddEvents($event)"
+        [date]="getMonthDate(m)"
+        [events]="events"
+      ></app-month>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="isDayClicked">
+  <app-events
+    (close)="closeForm()"
+    (formSubmit)="onFormSubmit($event)"
+    [eventDate]="eventDate"
+    [eventToUpdate]="updatedEvent"
+  ></app-events>
+</div>
+
+<div class="Event-list">
+  <div class="header">
+    <h2>Events</h2>
+    <button class="createEvent" (click)="onCreateEventClick()">Create Event</button>
+  </div>
+  <div class="separator"></div>
+  <div class="actions">
+    <input type="text" class="searchbar" placeholder=" Search Events" [(ngModel)]="searchedTerm" (input)="onSearchTerm()"/>
+
+
+
+    <select name="Events type"  id="type" [(ngModel)]="eventType" (change)="onSelectChange()">
+      <option value="All">All Events</option>
+      <option value="Upcoming">Upcoming Events</option>
+      <option value="Past">Past Events</option>
+    </select>
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Title</th>
+        <th>Date</th>
+        <th>Time</th>
+        <th>Duration</th>
+        <th>Location</th>
+        <th>Type</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr (click)="onEventClick(filteredEvents)" *ngFor="let filteredEvents of paginatedEvents; trackBy: trackByEventId">
+        <td>{{ filteredEvents.id }}</td>
+        <td>{{ filteredEvents.title }}</td>
+        <td>{{ filteredEvents.date }}</td>
+        <td>{{ filteredEvents.time }}</td>
+        <td>{{ filteredEvents.duration }}</td>
+        <td>{{ filteredEvents.location }}</td>
+        <td>
+          <div [ngClass]="getDateType(filteredEvents.date + ' ' + filteredEvents.time)">
+            {{ getDateType(filteredEvents.date + " " + filteredEvents.time)  }}
+          </div>
+        </td>
+        <td class="action">
+          <i class="fas fa-times" (click)="onDeleteEvent(filteredEvents.id!)"></i>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <app-pagination (pageChange)="changePage($event)" [totalRecords]="totalRecords" ></app-pagination>
+</div>
+
+  

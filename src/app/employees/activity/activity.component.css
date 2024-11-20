@@ -1,0 +1,212 @@
+.profile {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  margin: auto;
+  background-color: #f9f9f9;
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  width: 95%;
+  margin-top: 30px;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.profile:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.profile-info {
+  display: flex;
+  align-items: center;
+}
+
+.profile img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  margin-right: 20px;
+  border: 3px solid #4a7dff;
+}
+
+.profile-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.profile-text div {
+  margin-bottom: 10px;
+}
+
+.profile-text p {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #333;
+  margin: 0;
+}
+
+.profile-text span {
+  font-size: 1rem;
+  color: #666;
+}
+
+.contact-info span{
+  margin-right:20px ;
+}
+.additional-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.salary-info {
+  font-size: 0.95rem;
+  color: #555;
+}
+
+.details-button {
+  padding: 10px 15px;
+  border-radius: 5px;
+  background-color: #4a7dff;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  transition: background-color 0.2s, transform 0.2s;
+}
+
+.details-button i {
+  font-size: 1.2rem;
+}
+.department{
+  margin-left:10px ;
+  color: #4a7dff !important;
+}
+.salary-info{
+  color: green;
+  background-color: rgba(172, 255, 47, 0.37);
+  border-radius: 10px;
+  padding: 5px 10px;
+}
+.details-button:hover {
+  background-color: #3a68cc;
+  transform: translateY(-2px);
+}
+
+  .activity {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 95%;
+    margin: 30px auto;
+  }
+  
+  .time {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    width: 49%;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    position: relative;
+  }
+  
+  .time-section {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 10px 0;
+    font-weight: 600;
+    font-size: xx-large;
+  }
+  
+  .time-section div {
+    display: flex;
+    flex-direction: column;
+    
+    flex: 1;
+  }
+  
+  .time-section div:first-child {
+    margin-right: 20px; /* Add spacing between sections */
+  }
+  
+ 
+  
+ 
+  
+  .time-section div > div:last-child {
+    font-size:1.00rem; /* Smaller font size for labels */
+    font-weight:400;
+    color: #0000007d; /* Gray color for the labels */
+  }
+  
+  .separator-horizontal {
+    width: 90%;
+    height: 1px;
+    background-color: #ddd;
+    margin: 15px 0;
+  }
+  
+  .separator-vertical {
+    position: absolute;
+    top: 10%;
+    right: 50%;
+    bottom: 10%;
+    width: 1px;
+    background-color: #ddd;
+  }
+  
+  .chart {
+    background-color: #fff;
+    width: 49%;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+  
+  .activitytable {
+    width: 95%;
+    margin: auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    margin-top: 30px;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  thead {
+    background-color: #f4f4f4;
+  }
+  
+  th, td {
+    padding: 15px;
+    text-align: left;
+  }
+  
+  th {
+    font-weight: 600;
+    color: #333;
+  }
+  
+  td {
+    border-bottom: 1px solid #ddd;
+    font-size: 0.95rem;
+    color: #606060;
+  }
+  

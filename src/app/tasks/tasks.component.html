@@ -1,0 +1,45 @@
+<div class="container">
+
+    <div class="header">
+    <h2>Tasks</h2>
+</div>
+    <button class="Task" (click)="this.isTaskFormVisible=true"> New Task</button>
+
+</div>
+
+
+  <div *ngIf="isTaskFormVisible">
+    <app-new-task
+      (close)="closeTaskForm()"
+      (formSubmit)="onTaskFormSubmit($event)"
+   
+      [taskToUpdate]="updatedTask"
+    ></app-new-task>
+  </div>
+
+  
+
+
+
+
+<div class="tasks">
+ 
+  <div class="task" *ngFor="let task of tasks">
+    <div class="task-info">
+      <div class="head">
+        <div class="task-header">
+          <span class="task-time">{{formatTimeRange(task.start_time,null)}}</span>
+          <span class="task-date">{{formatDate(task.start_time)}}</span>
+          <span class="task-title">{{task.title}}</span>
+        </div>
+        <div class="task-actions">
+          <button class="edit-btn" (click)="onTaskClick(task)"><span class="fa fa-pen"></span></button>
+          <button class="delete-btn"><span class="fa fa-trash"></span></button>
+        </div>
+      </div>
+      <div class="separator"></div>
+      <p class="task-desc">{{task.description}}</p>
+    </div>
+  </div>
+
+</div>

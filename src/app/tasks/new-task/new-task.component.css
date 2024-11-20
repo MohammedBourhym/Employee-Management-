@@ -1,0 +1,126 @@
+.container {
+    position: fixed;
+    top: 0;
+    left: 240px; /* Sidebar width */
+    width: calc(100% - 240px); /* Remaining space */
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.137); /* Semi-transparent background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Poppins", sans-serif;
+    z-index: 500000;
+}
+
+.event {
+    width: 50%;
+    background-color: #ffffff;
+    padding: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+}
+
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+
+.close-icon {
+    cursor: pointer;
+    color: #fd0047;
+    padding: 6px;
+    border-radius:5px ;
+    font-size: larger;
+}
+
+.close-icon:hover{
+    color: #fd0047;
+    background-color: #ff97b459;
+}
+
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 12px;
+    margin-top: 5px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: rgba(194, 194, 255, 0.015);
+    color: #333;
+    font-size: 1rem;
+    border-color: #4a7dff6c;
+}
+
+input::placeholder, textarea::placeholder {
+    color: rgba(150, 150, 150, 0.7);
+   
+}
+
+textarea {
+    resize: vertical;
+}
+
+.time {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.duration {
+    display: flex;
+    flex-direction: column;
+}
+
+.duration-inputs {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.duration-inputs input {
+    width: 45%;
+    text-align: center;
+}
+
+button[type="submit"] {
+    width: 100%;
+    padding: 12px;
+    font-weight: 600;
+    color: #4a7dff;
+    background-color: #4a7dff12;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+
+
+
+
+
+button:hover{
+    background-color: #4a7dffd9;
+}
+.location{
+    margin-bottom: 15px;
+}
+
+.error {
+    color: #d9534f;
+    font-size: 0.85rem;
+    margin-top: 5px;
+}
+input.ng-invalid.ng-touched {
+    border: 1px solid red;
+ 
+  }

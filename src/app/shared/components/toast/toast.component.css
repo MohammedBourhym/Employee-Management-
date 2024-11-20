@@ -1,0 +1,30 @@
+.toast {
+    position: fixed;
+    bottom: 20px;
+    right: 5%;
+   
+    padding: 15px 20px;
+    color: white;
+    border-radius: 5px;
+    font-size: 1rem;
+    z-index: 1000;
+  }
+  
+  .success {
+    background-color: #35dc3d24;
+    color: rgb(5, 221, 5);
+    border-left:rgb(5, 221, 5) 4px solid ;
+    font-size: large;
+    font-weight: 600;
+    font-family: "Poppins", sans-serif;
+  }
+  
+  .error {
+    background-color: #dc354624;
+    color: red;
+    border-left:red 4px solid ;
+    font-size: large;
+    font-weight: 600;
+    font-family: "Poppins", sans-serif;
+  }
+  

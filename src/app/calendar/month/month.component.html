@@ -1,0 +1,47 @@
+<div class="">
+  <div class="calendar">
+    <div class="header">
+      <div class="month">{{ date | date : "MMMM " }}</div>
+      <div class="year">{{ date | date : " yyyy" }}</div>
+    </div>
+    <div class="body">
+      <table>
+        <thead>
+          <tr>
+            <th>S</th>
+            <th>M</th>
+            <th>T</th>
+            <th>W</th>
+            <th>T</th>
+            <th>F</th>
+            <th>S</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let week of cells">
+            <!-- Iterate over each day in the week -->
+            <td *ngFor="let day of week">
+              <button
+                class="active"
+                *ngIf="day.month === date.getMonth() + 1; else inactiveButton"
+                (click)="onDayClick(day)"
+                [ngClass]="{
+                  'today': isToday(day),
+                  'has-event': hasEvent(day)
+                }"
+              >
+                {{ day.day }}
+              </button>
+
+              <ng-template #inactiveButton>
+                <button class="inactive">
+                  {{ day.day }}
+                </button>
+              </ng-template>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

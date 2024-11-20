@@ -1,0 +1,85 @@
+<div class="profile">
+  <div class="profile-info">
+    <img
+      [src]="latestActivity?.avatar || 'default-avatar.png'"
+      alt="profile image"
+    />
+    <div class="profile-text">
+      <div>
+        <p>{{ latestActivity?.name || "-" }}</p>
+        <span>{{ latestActivity?.position || "-" }}</span>
+        <span class="department">{{ latestActivity?.department || "-" }}</span>
+      </div>
+      <div class="contact-info">
+        <span><i class="fa fa-envelope"></i> {{ latestActivity?.email || "-" }}</span>
+        <span><i class="fa fa-phone"></i> {{ latestActivity?.number || "-" }}</span>
+      </div>
+    </div>
+  </div>
+  <div class="additional-info">
+    <div class="salary-info">
+      <span > {{ latestActivity?.salary ? latestActivity?.salary + ' $' : "-" }}</span>
+    </div>
+    <button class="details-button" >
+      More Info
+    </button>
+  </div>
+</div>
+
+<div class="activity">
+  <div class="time">
+    <div class="time-section">
+      <div>
+        {{ latestActivity?.in_time || "-" }}
+        <div>In Time</div>
+      </div>
+      <div>
+        {{ latestActivity?.break_time || "-" }}
+        <div>Break Time</div>
+      </div>
+    </div>
+    <div class="separator-horizontal"></div>
+    <div class="time-section">
+      <div>
+        {{ latestActivity?.work_time || "-" }}
+        <div>Work Time</div>
+      </div>
+
+      <div>
+        {{ latestActivity?.overtime || "-" }}
+        <div>Over Time</div>
+      </div>
+    </div>
+    <div class="separator-vertical"></div>
+  </div>
+  <div class="chart">
+    <p-chart type="bar" [data]="chartData" [options]="chartOptions"></p-chart>
+  </div>
+</div>
+
+<div class="activitytable">
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Date</th>
+        <th>In Time</th>
+        <th>Out Time</th>
+        <th>work_time</th>
+        <th>Break Time</th>
+        <th>Over Time</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let activity of activities">
+        <td>{{ activity.id || "-" }}</td>
+        <td>{{ activity.date || "-" }}</td>
+        <td>{{ activity.in_time || "-" }}</td>
+        <td>{{ activity.out_time || "-" }}</td>
+        <td>{{ activity.work_time || "-" }}</td>
+        <td>{{ activity.break_time || "-" }}</td>
+        <td>{{ activity.overtime || "-" }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

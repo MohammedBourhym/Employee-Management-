@@ -1,0 +1,114 @@
+/* General Container Styles */
+.container {
+    position: fixed;
+    top: 0;
+    left: 240px; /* Sidebar width */
+    width: calc(100% - 240px); /* Remaining space */
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.137); /* Semi-transparent background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Poppins", sans-serif;
+    z-index: 500000;
+    padding: 20px; /* To give some space */
+    box-sizing: border-box;
+  }
+  
+  /* Export Card Styling */
+  .exportCard {
+    width: 100%;
+    max-width: 450px; /* Max width to prevent it from becoming too wide */
+    background-color: #ffffff;
+    padding: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    transition: all 0.3s ease;
+  }
+  
+  /* Header Style */
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .header h2 {
+    font-size: 1.5rem;
+    color: #333;
+    margin: 0;
+  }
+  
+  /* Close Icon Style */
+  .close-icon {
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #888;
+    transition: color 0.2s;
+  }
+  
+  .close-icon:hover {
+    color: #ff4d4d; /* Red on hover */
+  }
+  
+  /* Download Section Style */
+  .download {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+   
+  }
+  
+  .download p {
+    font-size: 1rem;
+    color: #333;
+    margin: 0 0 15px;
+  }
+  .buttons{
+    display: flex;
+  
+    justify-content: space-around;
+  }
+  
+  /* Button Styles */
+  .btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 20px;
+    font-size: 1rem;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s;
+    width:150px;
+   
+    text-align: center;
+  }
+  
+  .btn:hover {
+    opacity: 0.9;
+  }
+  
+  /* JSON Button Style */
+  .btn-json {
+    background-color: #ff0000; /* Green */
+  }
+  
+  .btn-json i {
+    margin-right: 8px;
+  }
+  
+  /* CSV Button Style */
+  .btn-csv {
+    background-color: #36e317; /* Orange */
+  }
+  
+  .btn-csv i {
+    margin-right: 8px;
+  }
+  
+  /* Responsive Styling */
+  

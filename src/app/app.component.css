@@ -1,0 +1,37 @@
+
+ 
+ /* app.component.css */
+
+ *{
+  font-family: "Poppins", sans-serif;
+ }
+.app-container {
+  display: flex;
+  min-height: 100vh; /* Full viewport height */
+}
+
+.sidebar {
+  width: 230px;
+
+ 
+  padding: 20px;
+  flex-shrink: 0; /* Keep sidebar fixed width */
+}
+
+.content {
+  flex-grow: 1; /* Expand to fill available space */
+  padding: 20px;
+  
+
+}
+
+/* Add media query for responsiveness */
+@media (max-width: 768px) {
+  .app-container {
+    flex-direction: column; /* Stack elements on smaller screens */
+  }
+
+  .sidebar {
+    width: 100%; /* Sidebar will take full width on smaller screens */
+  }
+}

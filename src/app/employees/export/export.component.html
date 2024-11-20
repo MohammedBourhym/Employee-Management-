@@ -1,0 +1,17 @@
+<div class="container">
+    <div class="exportCard">
+      <div class="header">
+        <h2>Create Event</h2>
+        <i class="fa fa-times close-icon" (click)="onClose()" aria-hidden="true"></i>
+      </div>
+  
+      <div class="download">
+        <p>Select file type you would like to download</p>
+        <div class="buttons">
+        <div><button (click)="downloadTable('json')" class="btn btn-json"><i class="fa fa-file-pdf"></i> JSON</button></div>
+        <div><button (click)="downloadTable('csv')" class="btn btn-csv"><i class="fa fa-file-csv"></i> CSV</button></div>
+    </div>
+      </div>
+    </div>
+  </div>
+  

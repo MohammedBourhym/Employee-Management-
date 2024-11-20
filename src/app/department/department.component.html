@@ -1,0 +1,75 @@
+<div class="department">
+
+    <div class="header">
+    <h2>{{department[0].name}}</h2>
+</div>
+    <button class="deleteDep">Delete Department</button>
+
+</div>
+
+<div class="container">
+    <h1>Employees Table</h1>
+    <div class="tableactions">
+      <!-- Search Bar with Two-Way Binding -->
+      <input
+        type="text"
+        class="searchbar"
+        placeholder=" Search"
+        [(ngModel)]="searchTerm"
+        (input)="searchEmployees()"
+      />
+    
+     </div>
+    <div class="separator"></div>
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Phone</th>
+          <th>Email</th>
+          <th>Position</th>
+      
+          <th>Salary</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Dynamic Data Binding for Employee Rows -->
+        <tr *ngFor="let employee of displayedEmployees" (click)="navigateProfile(employee.id)">
+          <td>{{ employee.id }}</td>
+          <td>
+            <div class="profil">
+              <img src="{{ employee.avatar }}" alt="Profile Image" />
+              <div class="user">
+                <div class="name">{{ employee.name }}</div>
+             
+              </div>
+            </div>
+          </td>
+  <td>{{employee.number}}</td>
+          <td>{{ employee.email }}</td>
+          <td>
+            <div class="position" [style.backgroundColor]=" " >{{ employee.position }}</div>
+          </td>
+       
+          <td>
+            {{employee.salary}}
+          </td>
+  
+          <td class="action">
+            <i class="fas fa-edit"></i>
+            <i class="fas fa-trash"></i>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  
+    <!-- Pagination Component -->
+    <!-- <app-pagination
+      [totalRecords]="totalRecords"
+      [rowsPerPage]="rowsPerPage"
+      (pageChange)="changePage($event)"
+    ></app-pagination> -->
+  </div>
+  

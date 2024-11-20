@@ -1,0 +1,138 @@
+* {
+  font-family: "Poppins", sans-serif;
+}
+
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f5f5f5;
+}
+
+.login-form {
+  background-color: white;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+  width: 100%;
+  max-width: 1400px;
+  display: flex;
+  align-items: stretch;
+}
+
+.foliaLogo {
+  flex: 1.5;
+  text-align: center;
+  padding-right: 30px;
+  border-right: 1px solid #eee;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.foliaLogo img {
+  max-width: 80%;
+  height: auto;
+ 
+}
+
+.input  {
+  flex: 1.5;
+
+  padding-left: 30px;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: #333;
+  font-weight: 600;
+}
+
+.form-group {
+  margin: auto;
+  margin-bottom: 1.5rem;
+  width: 80%;
+
+}
+
+label {
+  font-size: 0.9rem;
+  color: #555;
+  font-weight: 500;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+input {
+  width: 100%;
+  padding: 0.75rem;
+  margin-top: 0.25rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+input:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
+  outline: none;
+}
+
+.error-message {
+  color: #e63946;
+  font-size: 0.85rem;
+  margin-top: 0.25rem;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+.btn {
+  width: 100%;
+  max-width: 300px;
+  padding: 0.75rem;
+  background-color: #2b00ff17;
+    border-radius: 7px;
+    color:#4a7dff;
+
+  font-weight: 600;
+  border: none;
+ 
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn:hover {
+  background-color: #0e52ff75;
+  transform: translateY(-1px);
+}
+
+.btn:active {
+  transform: translateY(1px);
+}
+
+.spinner {
+  margin-left: 0.5rem;
+  border: 3px solid rgba(0, 0, 0, 0.1);
+  border-top: 3px solid #007bff;
+  border-radius: 50%;
+  width: 16px;
+  height: 16px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

@@ -1,0 +1,95 @@
+<div *ngIf="isCreateEmployeeVisible">
+  <app-add-employee
+    (close)="closeForm()"
+    (formSubmit)="onFormSubmit($event)"
+    [employeeToUpdate]="updatedEmployee"
+  >
+</app-add-employee>
+
+</div>
+
+
+<div *ngIf="export">
+  <app-export
+    (close)="closeExport()"
+  
+  >
+</app-export>
+
+</div>
+
+
+
+
+
+<div class="container">
+  <h1>Employees Table</h1>
+  <div class="tableactions">
+    <!-- Search Bar with Two-Way Binding -->
+    <input
+      type="text"
+      class="searchbar"
+      placeholder=" Search"
+      [(ngModel)]="searchTerm"
+      (input)="searchEmployees()"
+    />
+    <div class="button">
+      <button class="export" (click)="export=true">Export</button>
+      <button class="New" (click)="openAddEmployeeForm()">New Employee</button>
+    </div>
+  </div>
+
+  <div class="separator"></div>
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Phone</th>
+        <th>Email</th>
+        <th>Position</th>
+        <th>Department</th>
+        <th>Salary</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Dynamic Data Binding for Employee Rows -->
+      <tr *ngFor="let employee of displayedEmployees" (click)="navigateProfile(employee.id)">
+        <td>{{ employee.id }}</td>
+        <td>
+          <div class="profil">
+            <img src="{{ employee.avatar }}" alt="Profile Image" />
+            <div class="user">
+              <div class="name">{{ employee.name }}</div>
+           
+            </div>
+          </div>
+        </td>
+<td>{{employee.number}}</td>
+        <td>{{ employee.email }}</td>
+        <td>
+          <div class="position" [style.backgroundColor]=" " >{{ employee.position }}</div>
+        </td>
+        <td>
+          <span class="dep-square" [style.backgroundColor]="departmentColors[employee.departementid] || '#BDBDBD'"></span>{{ employee.department}}
+        </td>
+        <td>
+          {{employee.salary}}
+        </td>
+
+        <td class="action">
+          <i class="fas fa-edit" ></i>
+          <i class="fas fa-trash" (click)="deleteEmployee(employee)"></i>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- Pagination Component -->
+  <app-pagination
+    [totalRecords]="totalRecords"
+    [rowsPerPage]="rowsPerPage"
+    (pageChange)="changePage($event)"
+  ></app-pagination>
+</div>

@@ -1,0 +1,53 @@
+<div class="container">
+    <div class="event">
+      <div class="header">
+        <h2>{{ isUpdateMode ? 'Update Task' : 'Create Task' }}</h2>
+        <i class="fa fa-times close-icon" aria-hidden="true" (click)="onClose()"></i>
+      </div>
+  
+      <form #taskForm="ngForm" (ngSubmit)="onSubmit(taskForm)" novalidate>
+        <!-- Title Input -->
+        <div class="form-group">
+          <input
+            type="text"
+            id="title"
+            name="title"
+            placeholder="Enter task title"
+            [(ngModel)]="title"
+            required
+          />
+        </div>
+  
+        <!-- Start Time Input -->
+        <div class="form-group">
+          <label for="start_time">Start Time</label>
+          <input
+            type="time"
+            id="start_time"
+            name="start_time"
+            [(ngModel)]="start_time"
+            required
+          />
+        </div>
+  
+        <!-- Description Input -->
+        <div class="form-group">
+          <label for="description">Description</label>
+          <textarea
+            id="description"
+            name="description"
+            [(ngModel)]="description"
+            #descriptionCtrl="ngModel"
+            maxlength="500"
+            placeholder="Enter a description"
+          ></textarea>
+          <div *ngIf="descriptionCtrl.invalid && descriptionCtrl.touched" class="error">
+            Description must not exceed 500 characters.
+          </div>
+        </div>
+  
+        <button type="submit">{{ isUpdateMode ? 'Update' : 'Create' }} Task</button>
+      </form>
+    </div>
+  </div>
+  

@@ -1,0 +1,147 @@
+<div class="container">
+  <div class="modal-window">
+    <div class="modal-header">
+      <h4>New Employee</h4>
+      <button class="close-button"   (click)="onClose()">×</button>
+    </div>
+    <div class="form">
+      <form
+        enctype="multipart/form-data"
+        class="modal-body"
+        #employeeForm="ngForm"
+        (ngSubmit)="onSubmit(employeeForm)"
+        novalidate
+      >
+        <div class="side-panel">
+          <!-- Profile Image Upload -->
+          <div class="drop-zone" id="drop-zone-profile">
+            <p>Drag and drop Profile image here<br />or click to select</p>
+            <input
+              type="file"
+              accept="image/*"
+              (change)="onFileSelect($event, 'avatar')"
+              required
+            />
+          </div>
+
+          <!-- CIN Document Upload -->
+          <div class="drop-zone" id="drop-zone-cin">
+            <p>Drag and drop CIN document here<br />or click to select</p>
+            <input
+              type="file"
+              accept="application/pdf"
+              (change)="onFileSelect($event, 'cin')"
+              required
+            />
+          </div>
+
+          <!-- CNSS Document Upload -->
+          <div class="drop-zone" id="drop-zone-cnss">
+            <p>Drag and drop CNSS document here<br />or click to select</p>
+            <input
+              type="file"
+              accept="application/pdf"
+              (change)="onFileSelect($event, 'cnss')"
+              required
+            />
+          </div>
+        </div>
+
+        <div class="form-panel">
+          <!-- Name and Email -->
+          <div class="form-group-row">
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                [(ngModel)]="name"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="email">Email Address</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="example@gmail.com"
+                [(ngModel)]="email"
+                required
+              />
+            </div>
+          </div>
+
+          <!-- Number and Position -->
+          <div class="form-group-row">
+            <div class="form-group">
+              <label for="number">Number</label>
+              <input
+                type="text"
+                id="number"
+                name="number"
+                [(ngModel)]="number"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="position">Position</label>
+              <select
+                id="position"
+                name="position"
+                [(ngModel)]="position"
+                required
+              >
+                <option value="" disabled selected>Select Position</option>
+                <option value="Manager">Manager</option>
+                <option value="Developer">Developer</option>
+                <option value="HR">HR</option>
+                <option value="QA Tester">QA Tester</option>
+                <option value="Typing Agent">Typing Agent</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Department and Salary -->
+          <div class="form-group-row">
+            <div class="form-group">
+              <label for="department">Department</label>
+              <select
+                id="department"
+                name="department"
+                [(ngModel)]="departement"
+                required
+              >
+                <option value="" disabled selected>Select Department</option>
+                <option value="Quality">Quality</option>
+                <option value="Developer">Developer</option>
+                <option value="Axiobat">Axiobat</option>
+                <option value="Artinov">Artinov</option>
+                <option value="Specific Development">
+                  Specific Development
+                </option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="salary">Salary</label>
+              <input
+                type="number"
+                id="salary"
+                name="salary"
+                [(ngModel)]="salary"
+                required
+              />
+            </div>
+          </div>
+
+          <!-- Buttons -->
+          <div class="buttons">
+            <button type="reset" class="cancel">CANCEL</button>
+            <button type="submit" class="save">SAVE</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
