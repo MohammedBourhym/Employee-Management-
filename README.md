@@ -23,8 +23,8 @@ To run the app locally:
 
 1. Clone the repository:
     ```bash
-    git clone <frontend-repository-url>
-    cd <project-folder>
+    git clone Angular-Productivity-Application
+    cd src
     ```
 
 2. Install dependencies:
