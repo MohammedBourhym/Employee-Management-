@@ -20,7 +20,7 @@
     <div class="salary-info">
       <span > {{ latestActivity?.salary ? latestActivity?.salary + ' $' : "-" }}</span>
     </div>
-    <button class="details-button" >
+    <button class="details-button" (click)="openFiles(latestActivity?.cin,latestActivity?.cnss)">
       More Info
     </button>
   </div>

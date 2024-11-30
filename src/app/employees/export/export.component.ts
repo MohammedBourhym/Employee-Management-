@@ -15,14 +15,18 @@ export class ExportComponent {
  onClose(){
   this.close.emit(); 
  }
-  downloadTable(type : 'json'|'csv') {
-    this.fileService.downloadTable(type).subscribe((blob) => {
+  downloadTable(file : 'pdf' |'csv') {
+    this.fileService.downloadTable(file).subscribe((blob) => {
       const url = window.URL.createObjectURL(blob);
       const a = document.createElement('a');
       a.href = url;
-      a.download = 'table-data.json';
+      if(file=='pdf')
+      a.download = 'employees.pdf';
+      if(file=='csv')
+      a.download = 'employees.csv';
       a.click();
       window.URL.revokeObjectURL(url);
+      this.close.emit();
     });
   }
 

@@ -4,11 +4,11 @@ export class employee {
         email!:string;
         number!:string;
         position!:string;
-        cin!:string;
-        cnss!:string;
+        cin!:File;
+        cnss!:File;
         departement_id?:number;
         salary?:number;
-        avatar!:string;
+        avatar!:File;
 }
 
 export class employeeRecords {
@@ -19,9 +19,9 @@ export class employeeRecords {
     number: any;
     position: any;
     salary: any;
-    cin: any;
-    cnss: any;
-    avatar: any;
+    cin!: File;
+    cnss!: File;
+    avatar!: File;
     departementid:any;
     department:any;
 }

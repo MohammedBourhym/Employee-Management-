@@ -26,6 +26,18 @@ export class AddEmployeeComponent {
   @Output() formSubmit = new EventEmitter<boolean>();
   @Output() close = new EventEmitter<void>();
 
+
+  departmentMapping: { [key: string]: number } = {
+    Engineering: 1,
+    Marketing: 2,
+    'Human Resources': 3,
+    'Customer Support': 4,
+    Quality: 5,
+  };
+
+  departmentList = Object.keys(this.departmentMapping);
+
+  
   // Form fields
   avatar!: File;
   cin!: File;
@@ -34,7 +46,7 @@ export class AddEmployeeComponent {
   email: string = '';
   number: string = '';
   position: string = '';
-  departement?: number;
+  departementName?: string;
   salary?: number;
 
   constructor(
@@ -60,10 +72,20 @@ export class AddEmployeeComponent {
     this.email = this.employeeToUpdate!.email;
     this.number = this.employeeToUpdate!.number;
     this.position = this.employeeToUpdate!.position;
-    this.departement = this.employeeToUpdate!.departement_id;
+  
+    // Find department name by department ID
+    const departmentEntry = Object.entries(this.departmentMapping).find(
+      ([, id]) => id === this.employeeToUpdate!.departement_id
+    );
+  
+    this.departementName = departmentEntry ? departmentEntry[0] : ''; // Set department name
+  
     this.salary = this.employeeToUpdate!.salary;
+    this.cin = this.employeeToUpdate!.cin;
+    this.cnss = this.employeeToUpdate!.cnss;
+    this.avatar = this.employeeToUpdate!.avatar;
   }
-
+  
   /**
    * Reset form fields to their default values.
    */
@@ -72,7 +94,7 @@ export class AddEmployeeComponent {
     this.email = '';
     this.number = '';
     this.position = '';
-    this.departement = undefined;
+    this.departementName = '';
     this.salary = undefined;
     this.avatar = undefined!;
     this.cin = undefined!;
@@ -92,27 +114,28 @@ export class AddEmployeeComponent {
     }
   }
 
- 
-  onSubmit(employeeForm: NgForm) {
+  private getDepartmentId(): number | null {
+    return this.departmentMapping[this.departementName!] || null;
+  }
+
+ onSubmit(employeeForm: NgForm) {
     if (!employeeForm.valid) {
       this.toastService.showToast('Please fill all required fields', 'error');
       return;
     }
+    const departmentId = this.getDepartmentId();
 
     const formData = new FormData();
     formData.append('name', this.name);
     formData.append('email', this.email);
     formData.append('number', this.number);
     formData.append('position', this.position);
-    formData.append('departement', this.departement?.toString() || '');
+    formData.append('departement', departmentId?.toString() || ''); // Save department index
     formData.append('salary', this.salary?.toString() || '');
 
     if (this.avatar) formData.append('avatar', this.avatar);
     if (this.cin) formData.append('cin', this.cin);
     if (this.cnss) formData.append('cnss', this.cnss);
-     
-
-    
 
     if (this.isUpdateMode) {
       formData.append('id', this.employeeToUpdate!.id!.toString() || '');

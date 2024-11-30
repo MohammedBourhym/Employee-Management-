@@ -8,9 +8,9 @@ export class FileService {
   baseUrl = 'http://localhost:3000/api/employees/download';
   constructor(private http: HttpClient) {}
 
-  downloadTable(type : 'json'| 'csv') {
+  downloadTable(type : 'pdf'| 'csv') {
     return this.http.get(this.baseUrl +'/'+type, {
-      responseType: 'blob', // Ensure we handle binary data
+      responseType: 'blob', 
     });
   }
 

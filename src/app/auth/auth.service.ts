@@ -31,8 +31,12 @@ export class AuthService implements OnInit {
 
   setAccessToken(token: string) {
     this.accessToken = token;
-    // Set the token in a cookie with a proper expiration date (e.g., 1 hour)
-    this.cookieService.set('jwt', this.accessToken, { expires: 1 }); // Expires in 1 day
+     console.log(token ,"hey")
+
+
+
+    const jwtCookie = this.cookieService.get('jwt');
+    console.log('JWT Cookie Value:', jwtCookie,'hey');
   }
 
   login(credentials: { email: string; password: string }) {
@@ -40,6 +44,7 @@ export class AuthService implements OnInit {
       withCredentials: true,
     }).pipe(
       tap((response) => {
+        console.log(response.accessToken ," Hey1")
         this.setAccessToken(response.accessToken);
       }),
       catchError((error) => {
@@ -49,10 +54,13 @@ export class AuthService implements OnInit {
   }
 
   logout() {
-    this.accessToken = null;
-    this.cookieService.delete('jwt'); // Delete token cookie on logout
-    return this.http.post('/logout', {});
+    
+    return this.http.get(`${this.baseUrl}/logout`, { withCredentials: true });
   }
+
+
+
+
   isLoggedIn(): Observable<boolean> {
     const token = this.getAccessToken();
     if (token) {

@@ -17,7 +17,7 @@ export class EmployeeApiService {
    * Get all employees.
    */
   getAllEmployees(): Observable<employeeRecords[]> {
-    return this.http.get<employeeRecords[]>(this.baseUrl);
+    return this.http.get<employeeRecords[]>(this.baseUrl, { withCredentials: true });
   }
 
   /**
@@ -50,9 +50,7 @@ export class EmployeeApiService {
     return this.http.delete<any>(url);
   }
 
-  /**
-   * Notify components of a change in employee data.
-   */
+ 
   notifyChange() {
     this.changeNotifier.next();
   }

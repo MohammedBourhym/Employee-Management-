@@ -53,6 +53,7 @@ export class CalendarComponent implements OnInit {
   highlightedDays: string[] = [];
   changeDetectorRef: any;
   isDeleting: boolean = false;
+  currentPage: number=0;
   constructor(
     private apiEventsService: ApiEventsService,
     private cdr: ChangeDetectorRef
@@ -77,7 +78,7 @@ export class CalendarComponent implements OnInit {
         this.getHighlightedDays();
         this.filteredEvents = data;
         this.totalRecords = this.events.length;
-        this.updatePaginatedEvents();
+        this.applyPagination();
         this.cdr.detectChanges();
       },
       error: (e) => {
@@ -133,9 +134,10 @@ export class CalendarComponent implements OnInit {
   }
 
   changePage(page: PageEvent) {
+    this.currentPage = page.page ?? 0;
     this.start = page.first ?? 0;
     this.end = this.start + (page.rows ?? this.rowsPerPage);
-    this.updatePaginatedEvents();
+    this.applyPagination();
  }
 
   onEventClick(event: eventsData) {
@@ -168,6 +170,14 @@ export class CalendarComponent implements OnInit {
 
     this.updatePaginatedEvents();
   }
+
+  applyPagination() {
+    const start = this.currentPage * this.rowsPerPage;
+    const end = start + this.rowsPerPage;
+    this.paginatedEvents = this.events.slice(start, end);
+  }
+ 
+ 
 
   updatePaginatedEvents() {
     this.totalRecords = this.filteredEvents.length;

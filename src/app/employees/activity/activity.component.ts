@@ -107,4 +107,23 @@ export class ActivityComponent implements OnInit {
   
     return hours + minutes / 60; // Convert to hours
   }
+
+
+  openFiles(cin:URL,cnss:URL){
+    const cinLink = document.createElement('a');
+    cinLink.href = cin.toString();
+    cinLink.target = '_blank';
+    cinLink.rel = 'noopener noreferrer'; // For security
+    cinLink.click();
+
+
+    const cnssLink = document.createElement('a');
+    cnssLink.href = cnss.toString();
+    cnssLink.target = '_blank';
+    cnssLink.rel = 'noopener noreferrer'; // For security
+    cnssLink.click();
+
+
+   
+  }
 }

@@ -84,7 +84,7 @@ export class DepartmentComponent {
       employee.name?.toLowerCase().includes(term) ||
       employee.email?.toLowerCase().includes(term) ||
       employee.position?.toLowerCase().includes(term) ||
-      employee.cin?.toLowerCase().includes(term) ||
+ 
       (employee.id && employee.id.toString().includes(term))
     );
     this.totalRecords = filteredEmployees.length;

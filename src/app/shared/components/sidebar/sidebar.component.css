@@ -99,6 +99,9 @@
 
 .logout {
   padding-top: 20px;
+  position: fixed;
+  width:200px;
+  bottom: 0;
 }
 
 .content {

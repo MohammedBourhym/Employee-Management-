@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { EmployeeService } from '../services/employee.service';
 import { employee, employeeRecords } from '../models/employee.model';
 import { EmployeeApiService } from '../services/employee-api.service';
@@ -28,6 +28,7 @@ interface PageEvent {
 export class EmployeeListComponent implements OnInit {
   employees: employeeRecords[] = [];
   displayedEmployees: employeeRecords[] = [];
+  currentPage: number = 0;
   searchTerm: string = '';
   totalRecords = 0;
   rowsPerPage = 10;
@@ -38,9 +39,12 @@ export class EmployeeListComponent implements OnInit {
 
   constructor(
     private apiService: EmployeeApiService,
-    private employeeService: EmployeeService,
+    private cdr: ChangeDetectorRef,
     private router:Router
-  ) {}
+  ) {
+
+
+  }
 
   ngOnInit(): void {
     this.apiService.changeNotifier$.subscribe(() => {
@@ -61,30 +65,20 @@ export class EmployeeListComponent implements OnInit {
 ]
 
 
-
-
-
-
-
-
-
-
-
-
-
-  loadEmployees() {
-    this.apiService.getAllEmployees().subscribe({
-      next: (data) => {
-        this.employees = data;
-        this.totalRecords = this.employees.length;
-        this.displayedEmployees=data
-        this.applyPagination();
-      },
-      error: (error) => {
-        console.error('Failed to load employees:', error);
-      }
-    });
-  }
+loadEmployees() {
+  this.apiService.getAllEmployees().subscribe({
+    next: (data) => {
+      this.employees = data;
+      this.totalRecords = this.employees.length;
+      this.currentPage = 0; // Reset to the first page on reload
+      this.applyPagination();
+      this.cdr.detectChanges();
+    },
+    error: (error) => {
+      console.error('Failed to load employees:', error);
+    }
+  });
+}
 
   searchEmployees() {
     const term = this.searchTerm.toLowerCase();
@@ -92,7 +86,7 @@ export class EmployeeListComponent implements OnInit {
       employee.name?.toLowerCase().includes(term) ||
       employee.email?.toLowerCase().includes(term) ||
       employee.position?.toLowerCase().includes(term) ||
-      employee.cin?.toLowerCase().includes(term) ||
+    
       (employee.id && employee.id.toString().includes(term))
     );
     this.totalRecords = filteredEmployees.length;
@@ -103,6 +97,7 @@ export class EmployeeListComponent implements OnInit {
   onFormSubmit(isValid: boolean) {
     if (isValid) {
       this.isCreateEmployeeVisible = false;
+      this.applyPagination();
     }
   }
 
@@ -114,13 +109,23 @@ export class EmployeeListComponent implements OnInit {
   }
 
   applyPagination() {
-    this.displayedEmployees = this.displayedEmployees.slice(0, this.rowsPerPage);
+    const start = this.currentPage * this.rowsPerPage;
+    const end = start + this.rowsPerPage;
+    this.displayedEmployees = this.employees.slice(start, end);
   }
 
   changePage(page: PageEvent) {
+    this.currentPage = page.page ?? 0;
     const start = page.first ?? 0;
     const end = start + (page.rows ?? this.rowsPerPage);
     this.displayedEmployees = this.employees.slice(start, end);
+  }
+
+  onUpdateEmployee(e:employee){
+     // Only activate update if delete isn't active
+      this.updatedEmployee = e;
+      this.isCreateEmployeeVisible = true;
+   
   }
 
   openAddEmployeeForm() {
@@ -130,18 +135,32 @@ export class EmployeeListComponent implements OnInit {
 
 
   navigateProfile(id :number){
-    if(!this.isDeleting){
+    if(!this.isDeleting && !this.updatedEmployee && !this.isCreateEmployeeVisible){
       this.router.navigateByUrl('/profile/'+id)
     }
     this.isDeleting = false; 
   }
 
-  deleteEmployee(e:employeeRecords){
-    this.isDeleting=true;
-    this.apiService.deleteEmployee(e.id,e.name).subscribe({
-    next :()=>{
-      this.apiService.notifyChange()
-    }
-  })
+  deleteEmployee(e: employeeRecords) {
+    this.isDeleting = true;
+  
+    this.apiService.deleteEmployee(e.id, e.name).subscribe({
+      next: () => {
+        // Remove the deleted employee from the array
+        this.employees = this.employees.filter(emp => emp.id !== e.id);
+        
+        // Update total records
+        this.totalRecords = this.employees.length;
+  
+        // Notify other components
+        this.apiService.notifyChange();
+  
+        // Reapply pagination for the current page
+        this.applyPagination();
+      },
+      error: (err) => {
+        console.error('Failed to delete employee:', err);
+      }
+    });
   }
 }
