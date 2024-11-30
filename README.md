@@ -44,7 +44,7 @@ To run the app locally:
 
 ## Screenshots
 
-![Dashboard Screenshot](images/data.png.png)  
+![Dashboard Screenshot](images/data.png)  
 _Description of dashboard or activity monitor interface._
 
 ![Employee Management Screenshot](images/Emp.png)  
