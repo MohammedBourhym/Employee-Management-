@@ -44,10 +44,16 @@ To run the app locally:
 
 ## Screenshots
 
-![Dashboard Screenshot](path-to-screenshot.png)  
+![Dashboard Screenshot](images/data.png.png)  
 _Description of dashboard or activity monitor interface._
 
-![Employee Management Screenshot](path-to-screenshot.png)  
+![Employee Management Screenshot](images/Emp.png)  
+_Description of the employee management interface._
+
+![Employee Management Screenshot](images/event.png)  
+_Description of the employee management interface._
+
+![Employee Management Screenshot](images/dashboard.png)  
 _Description of the employee management interface._
 
 ## Backend Repository
