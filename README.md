@@ -1,70 +1,138 @@
-# Employee Management System
+# Angular Productivity Application
 
-This is an Angular-based application designed for business administrators to manage employee data, monitor their activities, and enhance productivity. The system allows for tasks such as employee management, tracking work hours, and managing various administrative processes. It is built with a separate backend API for handling data operations.
+A comprehensive employee management system built with Angular and Express, designed for business administrators to efficiently manage employee data, monitor activities, and enhance productivity.
 
-## Features
+![Dashboard Screenshot](client/images/dashboard.png)
 
-- **Employee Management**: Add, update, and delete employee details.
-- **Profile Management**: Upload profile images and essential documents (e.g., CIN, CNSS).
-- **Activity Monitoring**: Track and monitor employee activities and productivity.
-- **Role-Based Access**: Admin-only access to sensitive employee data and management tools.
+## 📋 Overview
 
-## Technologies Used
+This full-stack application provides a robust solution for:
+- Employee information management
+- Activity monitoring and tracking
+- Task and calendar management
+- Department organization
+- Document handling (profiles, identification, etc.)
 
-- **Frontend**: Angular, HTML, CSS, TypeScript
-- **Backend**: [Link to Backend Repo] (replace with actual URL)
-- **Authentication**: JWT for secure access
-- **API Integration**: REST API calls to the backend
-- **State Management**: Managed using Angular services and RxJS
+## 🖼️ Screenshots
 
-## Setup
+### Dashboard
+![Dashboard](client/images/data.png)  
+*A comprehensive overview of key metrics and employee activities*
 
-To run the app locally:
+### Employee Management
+![Employee Management](client/images/Emp.png)  
+*Manage employee profiles, documents, and information*
 
-1. Clone the repository:
-    ```bash
-    git clone Angular-Productivity-Application
-    cd src
-    ```
+### Calendar & Events
+![Calendar View](client/images/event.png)  
+*Schedule and track important dates and events*
 
-2. Install dependencies:
-    ```bash
-    npm install
-    ```
+## 🏗️ Architecture
 
-3. Run the development server:
-    ```bash
-    ng serve
-    ```
+The application consists of two main components:
 
-4. Open the app in a browser by navigating to:
-    ```
-    http://localhost:4200
-    ```
+1. **Frontend (Angular)**
+   - Modern UI with PrimeNG components
+   - JWT authentication
+   - Role-based access control
+   - Responsive design for all device sizes
 
-## Screenshots
+2. **Backend (Express)**
+   - RESTful API design
+   - JWT-based authentication with refresh tokens
+   - File upload and handling
+   - Database integration with Supabase
 
-![Dashboard Screenshot](images/data.png)  
-_Description of dashboard or activity monitor interface._
+## 🚀 Getting Started
 
-![Employee Management Screenshot](images/Emp.png)  
-_Description of the employee management interface._
+### Prerequisites
+- Node.js (v16+)
+- npm or yarn
+- Docker and Docker Compose (for containerized deployment)
 
-![Employee Management Screenshot](images/event.png)  
-_Description of the employee management interface._
+### Local Development Setup
 
-![Employee Management Screenshot](images/dashboard.png)  
-_Description of the employee management interface._
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/yourusername/Angular-Productivity-Application.git
+   cd Angular-Productivity-Application
+   ```
 
-## Backend Repository
+2. **Setting up the server**
+   ```bash
+   cd server
+   npm install
+   # Create a .env file with necessary environment variables (see below)
+   node src/server.js
+   ```
 
-The backend API for this application can be found in a separate repository:  
-[Backend Repository](https://github.com/MoBourhym/EXPRESS-CRUD-SUPABASE-JWT-FILE-MANIPULATION-.git)
+3. **Setting up the client**
+   ```bash
+   cd client
+   npm install
+   ng serve
+   ```
 
-## Contributing
+4. **Access the application**
+   - Frontend: http://localhost:4200
+   - Backend API: http://localhost:3000
 
-Feel free to fork this project and submit pull requests. Make sure to follow the code of conduct and submit issues for bugs or feature requests.
+### Environment Variables
 
-## License
+Create a `.env` file in the server directory with the following variables:
 
-This project is licensed under the MIT License 
+```
+PORT=3000
+ACCESS_TOKEN_SECRET=your_access_token_secret
+REFRESH_TOKEN_SECRET=your_refresh_token_secret
+SUPABASE_URL=your_supabase_url
+SUPABASE_KEY=your_supabase_key
+```
+
+## 🐳 Docker Deployment
+
+This project includes Docker configuration for easy deployment:
+
+1. **Build and run with Docker Compose**
+   ```bash
+   docker-compose up -d
+   ```
+
+2. **Access the containerized application**
+   - Frontend: http://localhost:4200
+   - Backend API: http://localhost:3000
+
+## 🧰 Technologies Used
+
+### Frontend
+- Angular 18
+- PrimeNG UI components
+- RxJS for state management
+- FullCalendar for event scheduling
+- Chart.js for data visualization
+
+### Backend
+- Express.js
+- JWT for authentication
+- Supabase for database
+- Multer for file uploads
+- PDF generation libraries
+
+## 📚 API Documentation
+
+The backend provides the following API endpoints:
+
+- `/auth` - Authentication endpoints
+- `/api/employees` - Employee management
+- `/api/events` - Calendar events
+- `/api/activity` - Activity tracking
+- `/api/department` - Department management
+- `/api/task` - Task management
+
+## 🤝 Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+## 📄 License
+
+This project is licensed under the MIT License.
