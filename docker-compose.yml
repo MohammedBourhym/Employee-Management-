@@ -1,0 +1,45 @@
+version: '3.8'
+
+services:
+  # Frontend service
+  client:
+    build:
+      context: ./client
+      dockerfile: Dockerfile
+    ports:
+      - "4200:80"
+    depends_on:
+      - server
+    restart: unless-stopped
+    networks:
+      - app-network
+    volumes:
+      - client-node-modules:/app/node_modules
+
+  # Backend service
+  server:
+    build:
+      context: ./server
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    restart: unless-stopped
+    env_file:
+      - ./server/.env
+    environment:
+      - NODE_ENV=production
+      - PORT=3000
+    volumes:
+      - ./server/src/uploads:/app/src/uploads
+      - server-node-modules:/app/node_modules
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
+
+volumes:
+  client-node-modules:
+  server-node-modules:
+  uploads-data:

@@ -1,0 +1,26 @@
+# Node modules
+node_modules
+npm-debug.log
+
+# Build outputs
+dist
+tmp
+out-tsc
+
+# Git and version control
+.git
+.gitignore
+
+# IDE specific files
+.idea
+.vscode
+.editorconfig
+
+# Environment files
+.env
+.env.*
+
+# Other
+README.md
+LICENSE
+*.md
