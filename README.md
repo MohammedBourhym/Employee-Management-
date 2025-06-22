@@ -4,7 +4,7 @@ A comprehensive employee management system built with Angular and Express, desig
 
 ![Dashboard Screenshot](client/images/dashboard.png)
 
-## 📋 Overview
+##  Overview
 
 This full-stack application provides a robust solution for:
 - Employee information management
@@ -13,7 +13,7 @@ This full-stack application provides a robust solution for:
 - Department organization
 - Document handling (profiles, identification, etc.)
 
-## 🖼️ Screenshots
+##  Screenshots
 
 ### Dashboard
 ![Dashboard](client/images/data.png)  
@@ -27,7 +27,7 @@ This full-stack application provides a robust solution for:
 ![Calendar View](client/images/event.png)  
 *Schedule and track important dates and events*
 
-## 🏗️ Architecture
+##  Architecture
 
 The application consists of two main components:
 
@@ -43,7 +43,7 @@ The application consists of two main components:
    - File upload and handling
    - Database integration with Supabase
 
-## 🚀 Getting Started
+##  Getting Started
 
 ### Prerequisites
 - Node.js (v16+)
@@ -89,7 +89,7 @@ SUPABASE_URL=your_supabase_url
 SUPABASE_KEY=your_supabase_key
 ```
 
-## 🐳 Docker Deployment
+##  Docker Deployment
 
 This project includes Docker configuration for easy deployment:
 
@@ -102,7 +102,7 @@ This project includes Docker configuration for easy deployment:
    - Frontend: http://localhost:4200
    - Backend API: http://localhost:3000
 
-## 🧰 Technologies Used
+##  Technologies Used
 
 ### Frontend
 - Angular 18
@@ -129,10 +129,3 @@ The backend provides the following API endpoints:
 - `/api/department` - Department management
 - `/api/task` - Task management
 
-## 🤝 Contributing
-
-Contributions are welcome! Please feel free to submit a Pull Request.
-
-## 📄 License
-
-This project is licensed under the MIT License.
